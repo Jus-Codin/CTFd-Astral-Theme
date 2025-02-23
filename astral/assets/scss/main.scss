@@ -1,0 +1,98 @@
+@use "bootstrap/scss/bootstrap" as * with (
+  $info: #5c728f
+);
+
+@use "includes/components/table";
+@use "includes/components/jumbotron";
+@use "includes/components/challenge";
+@use "includes/components/sticky-footer";
+@use "includes/components/graphs";
+@use "includes/components/title";
+
+@use "includes/utils/fonts";
+@use "includes/utils/opacity";
+@use "includes/utils/min-height";
+@use "includes/utils/cursors";
+@use "includes/utils/lolight";
+@use "includes/utils/stars";
+
+@use "includes/icons/award-icons";
+@use "includes/icons/flag-icons";
+
+h1,
+h2 {
+  letter-spacing: 2px;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  font-weight: bold;
+  text-shadow:
+    -3px 3px #577dd5,
+    -5px 1px #62d0fc,
+    -5px 5px #62d0fc,
+    -1px 1px #62d0fc,
+    -1px 5px #62d0fc,
+    -3px 3px 7px #577dd5,
+    -3px 3px 10px #577dd5,
+    -3px 3px 21px #577dd5,
+    -3px 3px 42px #62d0fc,
+    -3px 3px 62px #62d0fc;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+blockquote {
+  border-left: 4px solid $secondary;
+  padding-left: 15px;
+}
+
+input,
+select,
+button {
+  padding: 0.6rem !important;
+  height: auto !important;
+}
+
+.fa-spin.spinner {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.badge-notification {
+  vertical-align: top;
+  margin-left: -1.5em;
+  font-size: 50%;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+  background-size: 8px 10px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #577dd5;
+  border: #577dd5;
+
+  &:hover {
+    background-color: #62d0fc;
+    box-shadow:
+      0 0 10px #62d0fc,
+      0 0 21px #62d0fc,
+      0 0 42px #62d0fc;
+  }
+}
+
+[data-bs-theme="dark"] .modal-body {
+  background-color: #1d1936;
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0a0913;
+  --bs-body-bg-rgb: 10, 9, 19;
+  --bs-tertiary-bg: #282442;
+  --bs-tertiary-bg-rgb: 40, 36, 66;
+  --bs-dark: #282442;
+  --bs-dark-rgb: 40, 36, 66;
+}

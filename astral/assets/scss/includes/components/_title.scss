@@ -1,0 +1,173 @@
+body.titleScreenVisible {
+  overflow: hidden;
+}
+
+#startupScreen {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1000;
+
+  .startupText {
+    position: absolute;
+    top: -5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+    text-shadow: none !important;
+    z-index: 1001;
+
+    @media (max-width: 991.98px) {
+      font-size: 3rem;
+    }
+  }
+
+  .startupTextAnimation {
+    animation: slideFromTop 3s linear forwards;
+  }
+
+  @keyframes slideFromTop {
+    0% {
+      top: -100%;
+    }
+
+    100% {
+      top: 50%;
+    }
+  }
+}
+
+[data-bs-theme="light"] #startupScreen {
+  background-color: white;
+
+  .startupText {
+    color: black;
+  }
+}
+
+#titleScreen {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+
+  .rocket {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
+
+  .rocketAnimation {
+    animation: slideLeft 1s ease-in forwards;
+  }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+
+  .credits {
+    color: var(--bs-body-color);
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    text-align: right;
+  }
+  
+  .titleText {
+    text-align: center;
+    // padding-top: 20vh;
+    font-size: 5rem;
+
+    @media (max-width: 991.98px) {
+      font-size: 3rem;
+    }
+  }
+
+  .trademark {
+    position: relative;
+    line-height: 0;
+    vertical-align: baseline;
+    bottom: -.25em;
+    font-size: 1rem;
+  }
+
+  .subtitleText {
+    color: var(--bs-body-color);
+    text-align: center;
+    animation: blinker 2s linear infinite;
+  }
+
+  &.flashbang::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    animation-duration: 1000ms;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+  }
+
+  &.flashbang {
+    animation-duration: 1000ms;
+    animation-delay: 1000ms;
+    animation-name: fadeOut;
+    animation-fill-mode: forwards;
+    z-index: 1031; // navbar is at 1030 for some reason
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

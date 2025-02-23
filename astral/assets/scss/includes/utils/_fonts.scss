@@ -1,0 +1,16 @@
+$fa-font-path: "../webfonts";
+@import "~/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~/@fortawesome/fontawesome-free/scss/brands.scss";
+
+@import url("https://use.typekit.net/mvv1qss.css");
+
+html,
+body,
+.container {
+  font-family: "lores-9-wide", sans-serif;
+}
+
+.jumbotron .container {
+  font-family: "lores-9-wide", sans-serif;
+}

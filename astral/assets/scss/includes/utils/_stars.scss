@@ -1,0 +1,57 @@
+#starsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+  z-index: -999;
+}
+
+.stars {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  z-index: -999;
+  animation: travel 30s linear infinite;
+  will-change: right;
+  &.animation-2 {
+    animation-name: travel-2;
+  }
+  .star {
+    position: absolute;
+
+    &:after {
+      content: "+";
+    }
+    /* Randomly place stars */
+    @for $i from 1 through 50 {
+      &:nth-child(#{$i}) {
+        top: percentage(calc(random(97) / 100));
+        left: percentage(calc(random(100) / 100));
+      }
+    }
+  }
+  [data-bs-theme="light"] & {
+    .star {
+      color: #ffdf00;
+    }
+  }
+}
+@keyframes travel {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes travel-2 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}

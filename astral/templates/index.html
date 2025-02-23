@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title or Configs.ctf_name }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{{ Configs.ctf_small_icon }}" type="image/x-icon">
+
+  {{ meta | safe }}
+
+  {% block stylesheets %}
+    {{ Assets.css("assets/scss/main.scss") }}
+  {% endblock %}
+
+  {{ Plugins.styles }}
+
+  {{ Assets.js("assets/js/color_mode_switcher.js", type=None) }}
+
+  <script type="text/javascript">
+      window.init = {
+          'urlRoot': "{{ request.script_root }}",
+          'csrfNonce': "{{ Session.nonce }}",
+          'userMode': "{{ Configs.user_mode }}",
+          'userId': {{ Session.id }},
+          'userName': {{ User.name | tojson }},
+          'userEmail': {{ User.email | tojson }},
+          'teamId': {{ Team.id | tojson }},
+          'teamName': {{ Team.name | tojson }},
+          'start': {{ Configs.start | tojson }},
+          'end': {{ Configs.end | tojson }},
+          'themeSettings': {{ Configs.theme_settings | tojson }},
+          'eventSounds': [
+            "/themes/core/static/sounds/notification.webm",
+            "/themes/core/static/sounds/notification.mp3",
+          ],
+      }
+  </script>
+
+  {{ Configs.theme_header }}
+</head>
+<body>
+
+<div id="innerBody">
+  {% include "components/navbar.html" %}
+  {% include "components/stars.html" %}
+  
+  <main role="main">
+    {% block content %}
+    <div id="mainContent" class="container">
+      {{ content | safe }}
+    </div>
+  
+    {# Title Screen #}
+    <div id="titleScreen" class="d-none">
+      <div id="startupScreen" class="d-none">
+        <h1 id="startupText" class="startupText text-center">
+          Yes But No<span class="trademark">TM</span>
+        </h1>
+      </div>
+  
+      <div class="credits">
+        <small>Powered by <a href="https://ctfd.io">CTFd {{ config.get_config("ctf_version") }}</a></small><br>
+        <small>Astral Theme by <a href="https://github.com/Jus-Codin">JusCodin</a> for YBN CTF</small>
+      </div>
+
+      <div class="row align-items-center vh-100">
+        <h1 class="titleText">
+          {{ config.get_config("ctf_name") }}
+        </h1>
+    
+        <img src="{{ url_for('views.themes', path='img/rocket.png') }}" class="rocket" alt="Rocket">
+    
+        <h3 class="subtitleText">
+          Press anywhere to start
+        </h3>
+      </div>
+    </div>
+  
+    {% endblock %}
+  </main>
+  
+  <footer class="footer">
+    <div class="container text-center">
+      <small class="text-muted">Created with <span style="color: red;">&#10084;</span> by Yes But No</small>
+    </div>
+  </footer>
+  
+  <audio src="{{ url_for('views.themes', path='sounds/startup.mp3') }}" id="startupSound"></audio>
+  
+  {% block scripts %}
+    {{ Assets.js("assets/js/page.js") }}
+    {{ Assets.js("assets/js/title.js") }}
+  {% endblock %}
+  
+  {{ Plugins.scripts }}
+  
+  {{ Configs.theme_footer }}
+</div>
+</body>
+</html>
