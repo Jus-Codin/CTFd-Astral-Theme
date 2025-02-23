@@ -89,7 +89,7 @@ If you have any questions or suggestions, feel free to open an issue or a pull r
 
 ## Credits
 
-- [JusCodin](https://github.com/Jus-Codin) - Designer
+- [JusCodin](https://github.com/Jus-Codin) - Theme Designer
 - [ColdHeat](https://github.com/ColdHeat) - [CTFd](https://github.com/CTFd/CTFd) and [core-beta](https://github.com/CTFd/core-beta) theme developer
 
 
