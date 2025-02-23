@@ -71,7 +71,7 @@ To enable the custom title screen, you need to modify CTFd's source code. Follow
     +                ["index.html", "page.html"], content=page.html, title=page.title
     +            )
     +
-                 return render_template("page.html", content=page.html, title=page.title)
+             return render_template("page.html", content=page.html, title=page.title)
     ```
  
 4. Restart your CTFd server if necessary.
