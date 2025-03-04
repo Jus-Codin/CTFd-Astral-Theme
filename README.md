@@ -33,7 +33,7 @@ Installation of CTFd themes are relatively simple. You can follow the steps belo
 2. Copy the theme folder to CTFd's themes directory.
 
    ```bash
-   cp -r ctfd-astral-theme/ctfd_astral_theme /path/to/ctfd/themes/
+   cp -r ctfd-astral-theme/astral /path/to/ctfd/themes/
    ```
 
 3. Enable the theme in CTFd's admin panel.
